@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#this will exit the script if any none 0 values are returned
+set -e
+
+#create version variable
+go_version="1.6"
+
+#delete current golang installation
+sudo rm -rf /usr/local/go
+
+#changes working directory
+pushd /tmp
+
+#downloads goloang
+curl -O https://storage.googleapis.com/golang/go$go_version.linux-amd64.tar.gz
+
+#sending string to sha256sum -c to check it and compare
+#this hash will need to be changed each time you get a new version of golang
+sha256sum -c <<< "5470eac05d273c74ff8bac7bef5bad0b5abbd1c4052efbdbc8db45332e836b0b  go$go_version.linux-amd64.tar.gz"
+
+#untar the tarball
+tar xf go$go_version.linux-amd64.tar.gz
+
+#changes the owner of the golang binaries to root 
+sudo chown -R root:root ./go
+
+#moves the golang binaries 
+sudo mv go /usr/local
+
+#delete the tarball
+rm go$go_version.linux-amd64.tar.gz
+
+#puts us back to original directory 
+popd
+
+#overwrites current .bash_aliases 
+cat > $HOME/.bash_aliases <<EOL
+export EDITOR=vim
+export GOPATH=\$HOME/go
+export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
+EOL
