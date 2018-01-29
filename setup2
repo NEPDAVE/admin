@@ -5,7 +5,9 @@ set -e
 
 #create version variable
 go_version="1.6"
+echo $go_version
 go_tarball="go${go_version}.linux-amd64.tar.gz"
+echo $go_tarball
 
 #delete current golang installation
 sudo rm -rf /usr/local/go
