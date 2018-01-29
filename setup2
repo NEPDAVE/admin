@@ -5,19 +5,20 @@ set -e
 
 #create version variable
 go_version="1.6"
+go_tarball="go${go_version}.linux-amd64.tar.gz"
 
 #delete current golang installation
 sudo rm -rf /usr/local/go
 
 #downloads goloang
-curl -O https://storage.googleapis.com/golang/go$go_version.linux-amd64.tar.gz
+curl -O https://storage.googleapis.com/golang/$go_tarball
 
 #sending string to sha256sum -c to check it and compare
 #this hash will need to be changed each time you get a new version of golang
-sha256sum -c <<< "5470eac05d273c74ff8bac7bef5bad0b5abbd1c4052efbdbc8db45332e836b0b  go$go_version.linux-amd64.tar.gz"
+sha256sum -c <<< "5470eac05d273c74ff8bac7bef5bad0b5abbd1c4052efbdbc8db45332e836b0b  $go_tarball"
 
 #untar the tarball
-tar xf go$go_version.linux-amd64.tar.gz
+tar xf $go_tarball
 
 #changes the owner of the golang binaries to root 
 sudo chown -R root:root ./go
@@ -26,7 +27,7 @@ sudo chown -R root:root ./go
 sudo mv go /usr/local
 
 #delete the tarball
-rm go$go_version.linux-amd64.tar.gz
+rm $go_tarball
 
 #adds variables to ~/.profile 
 cat >> ~/.profile <<EOL
