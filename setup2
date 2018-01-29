@@ -4,7 +4,7 @@
 set -e
 
 #create version variable
-go_version="1.6"
+go_version="1.9.1"
 echo $go_version
 go_tarball="go${go_version}.linux-amd64.tar.gz"
 echo $go_tarball
@@ -17,7 +17,7 @@ curl -O https://storage.googleapis.com/golang/$go_tarball
 
 #sending string to sha256sum -c to check it and compare
 #this hash will need to be changed each time you get a new version of golang
-sha256sum -c <<< "5470eac05d273c74ff8bac7bef5bad0b5abbd1c4052efbdbc8db45332e836b0b  $go_tarball"
+#sha256sum -c <<< "5470eac05d273c74ff8bac7bef5bad0b5abbd1c4052efbdbc8db45332e836b0b  $go_tarball"
 
 #untar the tarball
 tar xf $go_tarball
@@ -34,8 +34,8 @@ rm $go_tarball
 #adds variables to ~/.profile 
 cat >> ~/.profile <<EOL
 export EDITOR=vim
-export GOPATH=$HOME/work
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export GOPATH=\$HOME/work
+export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
 EOL
 
-source ~/.profile 
+source ~/.profile
