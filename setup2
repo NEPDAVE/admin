@@ -38,4 +38,4 @@ export GOPATH=\$HOME/work
 export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
 EOL
 
-source ~/.profile
+echo finished installing golang, remember to source ~/.profile 
