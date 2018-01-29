@@ -9,9 +9,6 @@ go_version="1.6"
 #delete current golang installation
 sudo rm -rf /usr/local/go
 
-#changes working directory
-pushd /tmp
-
 #downloads goloang
 curl -O https://storage.googleapis.com/golang/go$go_version.linux-amd64.tar.gz
 
@@ -31,12 +28,11 @@ sudo mv go /usr/local
 #delete the tarball
 rm go$go_version.linux-amd64.tar.gz
 
-#puts us back to original directory 
-popd
-
-#overwrites current .bash_aliases 
-cat > $HOME/.bash_aliases <<EOL
+#adds variables to ~/.profile 
+cat >> ~/.profile <<EOL
 export EDITOR=vim
-export GOPATH=\$HOME/work
-export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
+export GOPATH=$HOME/work
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 EOL
+
+source ~/.profile 
