@@ -1,4 +1,5 @@
 #!/bin/bash
+#script to setup golang for mac
 
 #this will exit the script if any none 0 values are returned
 set -e
@@ -6,7 +7,7 @@ set -e
 #create version variable
 go_version="1.9.1"
 echo $go_version
-go_tarball="go${go_version}.linux-amd64.tar.gz"
+go_tarball="go${go_version}.darwin-amd64.tar.gz"
 echo $go_tarball
 
 #delete current golang installation
@@ -22,28 +23,25 @@ curl -O https://storage.googleapis.com/golang/$go_tarball
 #untar the tarball
 tar xf $go_tarball
 
-#changes the owner of the golang binaries to root 
+#changes the owner of the golang binaries to root
 #this is the file change command for linux
 #sudo chown -R root:root ./go
 
-#this is the file change command for mac 
+#this is the file change command for mac
 sudo chown -R root ./go
 
-#moves the golang binaries 
+#moves the golang binaries
 sudo mv go /usr/local
 
 #delete the tarball
 rm $go_tarball
 
-#add variables to ~/.profile for linux
-#add variables to ~/.bash_profile for mac 
+#add variables to ~/.bash_profile for mac
 cat >> ~/.bash_profile <<EOL
 export EDITOR=vim
 export GOPATH=\$HOME/work
 export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
 EOL
 
-#for linux
-#echo finished installing golang, remember to source ~/.profile
 #for mac
-echo finished installing golang, remember to source ~/.bash_profile 
+echo finished installing golang, remember to source ~/.bash_profile
