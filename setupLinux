@@ -35,10 +35,8 @@ sudo mv go /usr/local
 #delete the tarball
 rm $go_tarball
 
-#for linux
-cat >> ~/.profile <<EOL
-#for mac
-#cat >> ~/.bash_profile <<EOL 
+#for linux$ cat >> ~/.profile <<EOL
+#for mac$ cat >> ~/.bash_profile <<EOL 
 cat >> ~/.profile <<EOL
 export EDITOR=vim
 export GOPATH=\$HOME/work
