@@ -1,6 +1,6 @@
 mkdir $HOME/work
 
-#mkdir -p work/src/github.com/nepdave/hello
+mkdir -p work/src/github.com/nepdave/hello
 
 cat > hello.go <<EOF
 package main
@@ -13,8 +13,7 @@ func main() {
 
 EOF
 
+
+go install github.com/nepdave/hello
 go run hello.go
-
-#go install github.com/nepdave/hello
-
 
