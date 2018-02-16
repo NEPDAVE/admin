@@ -35,6 +35,9 @@ sudo mv go /usr/local
 #delete the tarball
 rm $go_tarball
 
+#create golang development path
+mkdir -p $HOME/work/src/github.com/nepdave/hello
+
 #for linux$ cat >> ~/.profile <<EOL
 #for mac$ cat >> ~/.bash_profile <<EOL 
 cat >> ~/.profile <<EOL
