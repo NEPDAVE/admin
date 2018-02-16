@@ -37,7 +37,7 @@ rm $go_tarball
 
 #add variables to ~/.profile for linux
 #add variables to ~/.bash_profile for mac 
-cat >> ~/.bash_profile <<EOL
+cat >> ~/.profile <<EOL
 export EDITOR=vim
 export GOPATH=\$HOME/work
 export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
