@@ -36,7 +36,7 @@ sudo mv go /usr/local
 rm $go_tarball
 
 #create golang development path
-mkdir -p $HOME/{work/src/github.com/nepdave}
+mkdir -p $HOME/work/{src}/{github.com}/{nepdave}
 
 #for linux$ cat >> ~/.profile <<EOL
 #for mac$ cat >> ~/.bash_profile <<EOL 
