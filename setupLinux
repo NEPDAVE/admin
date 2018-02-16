@@ -35,8 +35,10 @@ sudo mv go /usr/local
 #delete the tarball
 rm $go_tarball
 
-#add variables to ~/.profile for linux
-#add variables to ~/.bash_profile for mac 
+#for linux
+cat >> ~/.profile <<EOL
+#for mac
+#cat >> ~/.bash_profile <<EOL 
 cat >> ~/.profile <<EOL
 export EDITOR=vim
 export GOPATH=\$HOME/work
@@ -44,6 +46,6 @@ export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
 EOL
 
 #for linux
-#echo finished installing golang, remember to source ~/.profile
+echo finished installing golang, remember to source ~/.profile
 #for mac
-echo finished installing golang, remember to source ~/.bash_profile 
+#echo finished installing golang, remember to source ~/.bash_profile 
