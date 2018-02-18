@@ -43,4 +43,5 @@ export EDITOR=vim
 export GOPATH=\$HOME/go
 export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
 EOL
- 
+
+echo remember to source ~/.bash_aliases
