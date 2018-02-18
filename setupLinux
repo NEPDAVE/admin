@@ -36,17 +36,13 @@ sudo mv go /usr/local
 rm $go_tarball
 
 #create golang development path
-mkdir -p $HOME/work/src/github.com/nepdave
+mkdir -p $HOME/go/src/github.com/nepdave
 
 #for linux$ cat >> ~/.profile <<EOL
 #for mac$ cat >> ~/.bash_profile <<EOL 
-cat >> ~/.profile <<EOL
+cat > ~/.bash_aliases <<EOL
 export EDITOR=vim
-export GOPATH=\$HOME/work
+export GOPATH=\$HOME/go
 export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
 EOL
-
-#for linux
-echo finished installing golang, remember to source ~/.profile
-#for mac
-#echo finished installing golang, remember to source ~/.bash_profile 
+ 

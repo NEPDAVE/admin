@@ -1,0 +1,17 @@
+mkdir -p $HOME/go/src/github.com/nepdave/hello
+
+cat > $HOME/go/src/github.com/nepdave/hello/hello.go <<EOL
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Printf("hello, world\n")
+}
+
+EOL
+
+
+go install github.com/nepdave/hello
+$GOPATH/bin/hello
+
