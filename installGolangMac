@@ -1,0 +1,47 @@
+#!/bin/bash
+
+#this will exit the script if any none 0 values are returned
+set -e
+
+#create version variable
+go_version="1.10"
+echo $go_version
+go_tarball="go${go_version}.darwin-amd64.tar.gz"
+echo $go_tarball
+
+#delete current golang installation
+sudo rm -rf /usr/local/go
+
+#downloads goloang
+curl -O https://storage.googleapis.com/golang/$go_tarball
+
+#sending string to sha256sum -c to check it and compare
+#this hash will need to be changed each time you get a new version of golang
+#sha256sum -c <<< "5470eac05d273c74ff8bac7bef5bad0b5abbd1c4052efbdbc8db45332e836b0b  $go_tarball"
+
+#untar the tarball
+tar xf $go_tarball
+
+#changes the owner of the golang binaries to root 
+#this is the file change command for linux
+#sudo chown -R root:root ./go
+
+#this is the file change command for mac 
+sudo chown -R root ./go
+
+#moves the golang binaries 
+sudo mv go /usr/local
+
+#delete the tarball
+rm $go_tarball
+
+#create golang development path
+mkdir -p $HOME/go/src/github.com/nepdave
+
+cat > ~/.bash_aliases <<EOL
+export EDITOR=vim
+export GOPATH=\$HOME/go
+export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
+EOL
+
+echo remember to source ~/.bash_aliases
