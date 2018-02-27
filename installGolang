@@ -4,7 +4,7 @@
 set -e
 
 #create version variable
-go_version="1.9.1"
+go_version="1.10"
 echo $go_version
 go_tarball="go${go_version}.linux-amd64.tar.gz"
 echo $go_tarball
