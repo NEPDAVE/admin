@@ -1,0 +1,27 @@
+#!/bin/bash
+#golang binary deploy script
+
+#binary name="$1"
+echo $1
+
+cd ~/go/src/github.com/nepdave/$1
+
+#how to pull using a token
+#git pull https://{token}@github.com/nepdave/$1
+
+#after setting the repo remote origin to git remote set-url origin git@github.com:<Username>/<Project>.git
+#you can simply do a git pull and as long as the machines pulic key is in you github profile the pull will work
+git pull
+
+#based off initiall testing go install does not build binary in repository
+go install
+echo done installing $1
+#using go build to have binary in repository 
+go build
+echo done building $1
+
+echo ""
+echo "###################################################################"
+echo ATTENTION: do you need to restart the process? For linux, use command:
+echo sudo systemctl restart $1
+echo "###################################################################"
