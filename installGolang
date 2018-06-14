@@ -24,10 +24,10 @@ tar xf $go_tarball
 
 #changes the owner of the golang binaries to root 
 #this is the file change command for linux
-#sudo chown -R root:root ./go
+sudo chown -R root:root ./go
 
 #this is the file change command for mac 
-sudo chown -R root ./go
+#sudo chown -R root ./go
 
 #moves the golang binaries 
 sudo mv go /usr/local
