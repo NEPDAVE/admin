@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#this will exit the script if any none 0 values are returned
+set -e
+
+#update system
+sudo apt-get update
+
+#install postgresql
+sudo apt-get install postgresql postgresql-contrib
+
+#switch over to default postgres user account
+sudo -i -u postgres
