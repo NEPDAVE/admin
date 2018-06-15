@@ -24,14 +24,14 @@ curl -O https://storage.googleapis.com/golang/$go_tarball
 #untar the tarball
 tar xf $go_tarball
 
-#changes the owner of the golang binaries to root 
+#changes the owner of the golang binaries to root
 #this is the file change command for linux
 #sudo chown -R root:root ./go
 
-#this is the file change command for mac 
+#this is the file change command for mac
 sudo chown -R root ./go
 
-#moves the golang binaries 
+#moves the golang binaries
 sudo mv go /usr/local
 
 #delete the tarball
@@ -40,10 +40,15 @@ rm $go_tarball
 #create golang development path
 mkdir -p $HOME/go/src/github.com/nepdave
 
-cat > ~/.bash_aliases <<EOL
-export EDITOR=vim
-export GOPATH=\$HOME/go
-export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
-EOL
+#NEW WAY
+#overwrites current content in ~/.bash_aliases and/or creates new file
+echo "export PATH=$PATH:$(go env GOPATH)" > ~/.bash_aliases
+source ~/.bash_aliases
+
+#OLD WAY..
+#export EDITOR=vim
+#export GOPATH=\$HOME/go
+#export PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin
+#EOL
 
 echo remember to source ~/.bash_aliases
