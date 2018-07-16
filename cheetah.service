@@ -4,7 +4,7 @@ Description=Cheetah App
 [Service]
 User=dave
 Restart=on-failure
-ExecStart=/home/dave/go/src/github.com/nepdave/currencycat/cheetah.sh
+ExecStart=/home/dave/go/src/github.com/nepdave/cheetah/cheetah.sh
 
 [Install]
 WantedBy=multi-user.target
