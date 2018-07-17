@@ -41,8 +41,9 @@ rm $go_tarball
 mkdir -p $HOME/go/src/github.com/nepdave
 
 #NEW WAY
-#overwrites current content in ~/.bash_aliases and/or creates new file
+#appends  content in ~/.bash_aliases and/or creates new file
 echo "export PATH=$PATH:$(go env GOPATH)" > ~/.bash_aliases
+echo "export GOBIN=$(go env GOPATH)/bin" >> ~/.bash_aliases
 source ~/.bash_aliases
 
 #OLD WAY..
