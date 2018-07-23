@@ -39,10 +39,19 @@ rm $go_tarball
 #create golang development path
 mkdir -p $HOME/go/src/github.com/nepdave
 
+#NEW WAY II
+#echo 'REMEMBER TO AMEND PATH:'
+#echo 'export GOPATH=$HOME/go'
+#echo 'export PATH=$PATH:$GOPATH/bin'
+
+
 #NEW WAY
 #overwrites current content in ~/.bash_aliases and/or creates new file
-echo "export PATH=$PATH:$(go env GOPATH)" > ~/.bash_aliases
-source ~/.bash_aliases
+#GOPATH=$HOME/go
+echo export PATH=$PATH:/usr/local/go/bin > ~/.profile
+#echo "export PATH=$PATH:$HOME/go/bin" > ~/.profile
+#echo export PATH=$PATH:$(go env GOPATH) > ~/.bash_aliases
+#source ~/.bash_aliases
 
 #OLD WAY
 #cat > ~/.bash_aliases <<EOL
